@@ -1,50 +1,45 @@
 <!doctype html>
 <html>
-<head>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-</head>
+    <head> <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    </head>
 
-<body style="margin: 0; overflow: hidden;">
-    <a-scene
-        vr-mode-ui="enabled: false;"
-        loading-screen="enabled: false;"
-        renderer="logarithmicDepthBuffer: true;"
-        arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-        embedded
+    <body style="margin: 0; overflow: hidden;">
+       
+            <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
     >
-        <a-assets>
-            <a-asset-item
-                id="animated-asset"
-                src="assets/asset.glb"
-            ></a-asset-item>
-        </a-assets>
+        
+            <a-assets>
+                <a-asset-item
+                    id="animated-asset"
+                    src="assets/asset.glb"
+                ></a-asset-item>
+            </a-assets>
 
-        <a-marker
-            type="pattern"
-            preset="custom"
-            url="assets/marker.patt"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-            id="markerA"
-        >
-            <a-entity
-                id="bowser-model"
-                scale="0.1488840953312456 0.1488840953312456 0.1488840953312456"
-                animation-mixer="loop: repeat"
-                gltf-model="#animated-asset"
-                class="clickable"
-                gesture-handler
-            ></a-entity>
-        </a-marker>
+            <a-marker
+                id="animated-marker"
+                type="pattern"
+                preset="custom"
+                url="assets/marker.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity
+                    id="bowser-model"
+                    scale="0.1488840953312456 0.1488840953312456 0.1488840953312456"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#animated-asset"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
 
-        <a-entity id="second-camera" camera></a-entity>
-    </a-scene>
-
-    <script>
-        var secondCameraEl = document.querySelector('#second-camera');
-        secondCameraEl.setAttribute('camera', 'active', true);
-    </script>
-</body>
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
 </html>
+
