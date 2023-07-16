@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html>
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   
@@ -39,7 +40,7 @@
       <a-entity camera></a-entity>
     </a-scene>
 
-    <div id="options">
+    <div id="options" style="display:none;">
       <h2>Seleccione una opción para Hiro:</h2>
       <button onclick="changeModel('#hiro-model', '#hiro-mixin-1')">Opción 1</button>
       <button onclick="changeModel('#hiro-model', '#hiro-mixin-2')">Opción 2</button>
@@ -109,6 +110,10 @@
             previousPosition = currentPosition;
           });
         }
+      });
+
+      document.addEventListener("DOMContentLoaded", function(event) {
+        document.getElementById("options").style.display = "block";
       });
     </script>
   </body>
