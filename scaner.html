@@ -1,5 +1,5 @@
 
-       <!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   
@@ -50,14 +50,6 @@
       <button onclick="changeModel('#kanji-model', '#kanji-mixin-1')">Opción 1</button>
       <button onclick="changeModel('#kanji-model', '#kanji-mixin-2')">Opción 2</button>
       <button onclick="changeModel('#kanji-model', '#kanji-mixin-3')">Opción 3</button>
-      
-      <h2>Seleccione una nueva opción:</h2>
-      <button onclick="resetModel('#hiro-model', '#hiro-mixin-1')">Hiro: Opción 1</button>
-      <button onclick="resetModel('#hiro-model', '#hiro-mixin-2')">Hiro: Opción 2</button>
-      <button onclick="resetModel('#hiro-model', '#hiro-mixin-3')">Hiro: Opción 3</button>
-      <button onclick="resetModel('#kanji-model', '#kanji-mixin-1')">Kanji: Opción 1</button>
-      <button onclick="resetModel('#kanji-model', '#kanji-mixin-2')">Kanji: Opción 2</button>
-      <button onclick="resetModel('#kanji-model', '#kanji-mixin-3')">Kanji: Opción 3</button>
     </div>
 
     <script>
@@ -65,12 +57,9 @@
         var model = document.querySelector(marker);
         var mixin = document.querySelector(mixinId);
         model.setAttribute("mixin", mixin.getAttribute("id"));
-      }
-      
-      function resetModel(marker, defaultMixinId) {
-        var model = document.querySelector(marker);
-        var defaultMixin = document.querySelector(defaultMixinId);
-        model.setAttribute("mixin", defaultMixin.getAttribute("id"));
+        
+        // Ocultar opciones después de seleccionar
+        document.getElementById("options").style.display = "none";
       }
       
       AFRAME.registerComponent('draggable', {
