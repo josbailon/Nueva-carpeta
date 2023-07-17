@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+       <!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,19 @@
       body {
         margin: 0;
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       
       #options {
-        display: none;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
+        background: white;
+        padding: 1em;
       }
       
       #options h2 {
@@ -153,8 +158,8 @@
             };
 
             var rotation = el.getAttribute('rotation');
-            rotation.y += delta.x * 0.5;
-            rotation.x += delta.y * 0.5;
+            rotation.y -= delta.x * 0.5; // Cambiado a resta en lugar de suma para invertir la dirección
+            rotation.x -= delta.y * 0.5; // Cambiado a resta en lugar de suma para invertir la dirección
             el.setAttribute('rotation', rotation);
 
             previousPosition = currentPosition;
